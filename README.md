@@ -81,33 +81,33 @@ Evaluation metrics:
 - Root Mean Squared Error (RMSE)
 - Mean Absolute Error (MAE)
 - R‑squared (R²)
-- **Directional Accuracy** — how often the model correctly predicts the sign of the next return [file:55]
+- **Directional Accuracy** — how often the model correctly predicts the sign of the next return
 
 ---
 
 ## Portfolio Construction & Backtesting
 
-The project goes beyond prediction by converting forecasts into a simple prototype trading strategy [file:55]:
+The project goes beyond prediction by converting forecasts into a simple prototype trading strategy:
 
 - For each rebalancing date, predicted returns are ranked across assets
 - A **Top‑3 equal‑weight portfolio** is constructed from the highest‑ranked coins
 - A fixed **transaction cost (e.g., 10 bps per trade)** is deducted on each rebalance cycle
 - Performance is compared against an **equal‑weight benchmark** that allocates uniformly across all available assets
 
-Reported portfolio metrics include [file:55]:
+Reported portfolio metrics include:
 
 - Total return
 - Sharpe ratio
 - Maximum drawdown
 - Annualised volatility
 
-This highlights that in non‑stationary crypto markets, portfolio‑level outcomes and directional signals matter more than maximising R² alone [file:55].
+This highlights that in non‑stationary crypto markets, portfolio‑level outcomes and directional signals matter more than maximising R² alone.
 
 ---
 
 ## Explainability (SHAP)
 
-To ensure the Random Forest model does not act as a pure black box, **SHAP** is used to identify the most influential features [file:55][file:56]:
+To ensure the Random Forest model does not act as a pure black box, **SHAP** is used to identify the most influential features:
 
 - Top drivers include:
   - Return dynamics over recent windows
@@ -115,15 +115,15 @@ To ensure the Random Forest model does not act as a pure black box, **SHAP** is 
   - Volatility regime indicators
   - Technical indicators such as RSI, Bollinger Band position and MACD‑style signals
 
-SHAP summary plots show that the model leverages meaningful market structure rather than noise, improving interpretability for a risk or portfolio manager audience [file:55].
+SHAP summary plots show that the model leverages meaningful market structure rather than noise, improving interpretability for a risk or portfolio manager audience.
 
 ---
 
 ## Files in this Repository
 
-- `Mohd-Nizam-Shaikh-Cryptocurrency-24198170.ipynb` — main AI pipeline notebook for cryptocurrency portfolio prediction [file:56]
-- `Mohd-Nizam-Shaikh-CA2-AI-for-Finance-24198170.pdf` — full project report with literature review, methodology, experiments and portfolio analysis [file:55]
-- `CA1-AI-for-Finance-24198170.pdf` — critical review of deep reinforcement learning‑based portfolio management (Betancourt & Chen, 2021) [file:57]
+- `Mohd-Nizam-Shaikh-Cryptocurrency-24198170.ipynb` — main AI pipeline notebook for cryptocurrency portfolio prediction
+- `Mohd-Nizam-Shaikh-CA2-AI-for-Finance-24198170.pdf` — full project report with literature review, methodology, experiments and portfolio analysis
+- `CA1-AI-for-Finance-24198170.pdf` — critical review of deep reinforcement learning‑based portfolio management (Betancourt & Chen, 2021) 
 - `top_100_cryptocurrency_2020_2025 - 24198170.xlsm` — dataset workbook
 
 ---
