@@ -8,7 +8,7 @@
 
 ## Overview
 
-This project builds an **AI‑driven cryptocurrency portfolio management pipeline** using the **Top 100 Cryptocurrency (2020–2025)** dataset from Kaggle [file:56][file:55]. The goal is to predict next‑period returns across a large, dynamic universe of coins and convert those forecasts into an adaptive long‑only portfolio strategy with realistic transaction cost adjustments.
+This project builds an **AI‑driven cryptocurrency portfolio management pipeline** using the **Top 100 Cryptocurrency (2020–2025)** dataset from Kaggle. The goal is to predict next‑period returns across a large, dynamic universe of coins and convert those forecasts into an adaptive long‑only portfolio strategy with realistic transaction cost adjustments.
 
 Instead of focusing only on single‑asset price prediction, the pipeline emphasises:
 
@@ -21,7 +21,7 @@ Instead of focusing only on single‑asset price prediction, the pipeline emphas
 
 ## Objectives
 
-- Load and clean the full **Top 100 Cryptocurrency (2020–2025)** dataset (≈211k rows, 100 symbols) [file:56][file:55]
+- Load and clean the full **Top 100 Cryptocurrency (2020–2025)** dataset (≈211k rows, 100 symbols)
 - Engineer **ratio‑normalised** technical features that are comparable across assets regardless of absolute price level
 - Transform the target into **log returns** with winsorisation to control extreme outliers
 - Build and compare five forecasting models:
@@ -39,7 +39,7 @@ Instead of focusing only on single‑asset price prediction, the pipeline emphas
 
 ## Dataset
 
-- Source: Kaggle — *Top 100 Cryptocurrency (2020–2025)* [file:56][file:55]
+- Source: Kaggle — *Top 100 Cryptocurrency (2020–2025)*
 - Raw columns include:
   - `symbol`, `date`, `open`, `high`, `low`, `close`, `network`
 - After cleaning and feature engineering, the working dataset includes:
@@ -47,14 +47,14 @@ Instead of focusing only on single‑asset price prediction, the pipeline emphas
   - **Moving average distances** (e.g., price / MA)
   - **Volatility regime indicators**
   - **Technical indicators** (e.g., RSI, Bollinger Band position, MACD‑style ratios)
-- All **100 symbols** are used to create ~240k training rows, which is critical for deep learning stability [file:56]
+- All **100 symbols** are used to create ~240k training rows, which is critical for deep learning stability
 
 Key design decisions:
 
-- Raw OHLC prices are **removed** to avoid scale dominance (BTC at ~35,000 vs DOGE at ~0.11) [file:56]
-- Target is log return with **winsorisation at ±3σ** to reduce noise‑driven extremes [file:56][file:55]
+- Raw OHLC prices are **removed** to avoid scale dominance (BTC at ~35,000 vs DOGE at ~0.11) 
+- Target is log return with **winsorisation at ±3σ** to reduce noise‑driven extreme
 - Features are **ratio‑normalised** so that patterns are comparable across all assets
-- Sequence models use a **lookback window of 20 days** to capture richer temporal context [file:56]
+- Sequence models use a **lookback window of 20 days** to capture richer temporal context
 
 ---
 
@@ -62,13 +62,13 @@ Key design decisions:
 
 ### Modelling pipeline
 
-- Data loaded from an Excel workbook (e.g., `top_100_cryptocurrency_2020_2025 - 24198170.xlsm`) [file:56]
+- Data loaded from an Excel workbook (e.g., `top_100_cryptocurrency_2020_2025 - 24198170.xlsm`)
 - Per‑symbol processing and feature engineering
 - Train/validation/test splits respecting time order to minimise look‑ahead bias
 
 ### Models
 
-All models are trained on the same feature set to allow a fair comparison [file:56]:
+All models are trained on the same feature set to allow a fair comparison:
 
 - **Random Forest Regressor**
 - **XGBoost Regressor**
@@ -124,7 +124,7 @@ SHAP summary plots show that the model leverages meaningful market structure rat
 - `Mohd-Nizam-Shaikh-Cryptocurrency-24198170.ipynb` — main AI pipeline notebook for cryptocurrency portfolio prediction [file:56]
 - `Mohd-Nizam-Shaikh-CA2-AI-for-Finance-24198170.pdf` — full project report with literature review, methodology, experiments and portfolio analysis [file:55]
 - `CA1-AI-for-Finance-24198170.pdf` — critical review of deep reinforcement learning‑based portfolio management (Betancourt & Chen, 2021) [file:57]
-- `top_100_cryptocurrency_2020_2025 - 24198170.xlsm` — dataset workbook (if included)
+- `top_100_cryptocurrency_2020_2025 - 24198170.xlsm` — dataset workbook
 
 ---
 
